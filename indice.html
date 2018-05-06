@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <link type="text/css" rel="stylesheet" href="style.css">    
+    </head>
+
+    <body oncontextmenu="return false;">
+        <div class="container" oncontextmenu="return ShowContextMenu(event);">
+         <div id="contextMenu" class="context-menu">
+            <ul>
+             <li>Create an element</li>
+             <li>Remove an element</li>
+             <li>Edit an element</li>
+             <li>Exit</li>
+             </ul>
+          </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    window.onclick=hideContextMenu;
+    window.onkeydown=listenKeys;
+    var contextMenu=document.getElementById('contextMenu');
+        function ShowContextMenu(event){
+            contextMenu.style.display="block";
+            contextMenu.style.left=event.clientX+"px";
+            contextMenu.style.top=event.clientY+"px";
+            return false;
+        }
+        function hideContextMenu(){
+            contextMenu.style.display="none";
+        }
+        function listenKeys(event){
+            var keyCode=event.which || event.keyCode;
+            if(keyCode===27){
+                contextMenu.style.display="none";
+            }
+            
+        }
+        
+    </script>
+</html>
